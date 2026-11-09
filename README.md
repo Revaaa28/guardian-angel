@@ -123,8 +123,13 @@ Deployment receipts:
 [Vault deploy](https://sepolia.basescan.org/tx/0x95af58a41be75a78a76947ec12174e949c0b84aa337e914c95d92173662769ea)
 
 **Source verification:** deployment bytecode is the exact output of
-`forge build` from this repo (Solc 0.8.29, pinned library). Sourcify
-verification status is tracked in [`STAGE4_NOTES.md`](STAGE4_NOTES.md).
+`forge build` from this repo (Solc 0.8.29, pinned library), so anyone can
+reproduce and compare it. Sourcify verification was attempted repeatedly
+(`forge verify-contract --verifier sourcify` and the Sourcify v2 API directly)
+but the verify endpoint did not respond from our build environment, and the
+Sourcify lookup API still reports no match — treat the contracts as
+**unverified on Sourcify for now**; the full attempt log is in
+[`STAGE4_NOTES.md`](STAGE4_NOTES.md).
 
 ## Proof: the full loop, on-chain
 
