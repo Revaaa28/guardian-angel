@@ -91,3 +91,22 @@ Diagnostics:
 remains outstanding purely due to the verify endpoint's unresponsiveness
 from this build environment — non-blocking for the buildathon (bytecode is
 reproducible from the public repo).
+
+## Sourcify verification — RESOLVED 2026-11-10 ~07:06 WITA (all three PERFECT MATCH)
+
+Verified via the Sourcify web verifier (verify.sourcify.dev) after the VM's
+POST egress to sourcify.dev proved dead. The prepared payload files are
+WRAPPERS (top-level keys: stdInputJson, compilerVersion, contractIdentifier,
+creationTransactionHash); the UI needs the bare stdInputJson object pasted
+into the Std JSON "Paste File" textarea, with compiler
+v0.8.29+commit.ab55807c and the matching contract identifier.
+
+| Contract | Chain | Job ID | Match ID | Result | Verified at (UTC) |
+|---|---|---|---|---|---|
+| GuardianToken 0x638D26a8…ec81 | 84532 | 78fd6e8a-168f-4fed-ba70-56d949a58a82 | 58939733 | Runtime Match + Creation Match | 2026-11-09T23:02:27Z |
+| GuardianVault 0xAa41E6ef…7895f | 84532 | e0db347a-ea62-4f9f-b9ef-c1b6abcb5f37 | 58939894 | Runtime Match + Creation Match | 2026-11-09T23:04:04Z |
+| GuardianReactive 0x638D26a8…ec81 | 5318007 | 56474ee3-317a-430e-ba56-323e5a1dedce | 58940045 | Runtime Match + Creation Match | 2026-11-09T23:05:51Z |
+
+Independently re-confirmed by elle via GET
+https://sourcify.dev/server/v2/contract/{chain}/{address} for all three:
+match="match", creationMatch="match", runtimeMatch="match".

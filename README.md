@@ -122,14 +122,18 @@ Deployment receipts:
 [Reactive deploy](https://lasna.reactscan.net/tx/0x5be7299cde2e605df06a7dc5dbf2f2cc2e1f7e6bbd1ccdfe584516476d824348) ·
 [Vault deploy](https://sepolia.basescan.org/tx/0x95af58a41be75a78a76947ec12174e949c0b84aa337e914c95d92173662769ea)
 
-**Source verification:** deployment bytecode is the exact output of
-`forge build` from this repo (Solc 0.8.29, pinned library), so anyone can
-reproduce and compare it. Sourcify verification was attempted repeatedly
-(`forge verify-contract --verifier sourcify` and the Sourcify v2 API directly)
-but the verify endpoint did not respond from our build environment, and the
-Sourcify lookup API still reports no match — treat the contracts as
-**unverified on Sourcify for now**; the full attempt log is in
-[`STAGE4_NOTES.md`](STAGE4_NOTES.md).
+**Source verification:** all three contracts are **verified on Sourcify with
+perfect matches** — both runtime and creation bytecode matched for each
+(Solc 0.8.29+commit.ab55807c, verified 2026-11-09):
+[GuardianToken](https://repo.sourcify.dev/84532/0x638D26a8da9FD4E68de6c5eaB237A4343f43ec81)
+(match ID 58939733) ·
+[GuardianVault](https://repo.sourcify.dev/84532/0xAa41E6ef5C0Ed3b6c5175A258774178bF127895f)
+(match ID 58939894) ·
+[GuardianReactive](https://repo.sourcify.dev/5318007/0x638D26a8da9FD4E68de6c5eaB237A4343f43ec81)
+(match ID 58940045).
+Deployment bytecode is the exact output of `forge build` from this repo
+(pinned library), so anyone can also reproduce and compare it. The full
+verification log is in [`STAGE4_NOTES.md`](STAGE4_NOTES.md).
 
 ## Proof: the full loop, on-chain
 
