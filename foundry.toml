@@ -1,0 +1,13 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.29"
+
+# Reactive contracts library: Reactive-Network/reactive-lib-omni
+# pinned at commit 3ade0dcf1d27e67e5783ef807e73a1b9e0c0cce8 (see BUILD_NOTES.md).
+# forge-std pinned at commit dc647cc030d9d65910d8f1172a0cde48d7106e32.
+remappings = [
+    "@reactive/=lib/reactive-lib-omni/",
+    "forge-std/=lib/forge-std/src/",
+]
